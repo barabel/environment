@@ -62,3 +62,14 @@ export const IS_DESKTOP = () => {
 export const IS_MOBILE = () => {
 	return window.innerWidth < MEDIA_SIZES.TABLET;
 }
+
+/**
+ * Функция имитирует toFixed, только возращает число
+ * @param {number} num - число, которое необходимо преобразовать
+ * @param {number} digits - количество чисел после запятой
+ * @param {number=} base - система исчисления, по-умолчанию десятичная
+ */
+export const toFixedNumber = (num, digits, base) => {
+	var pow = Math.pow(base || 10, digits);
+	return Math.round(num * pow) / pow;
+}
