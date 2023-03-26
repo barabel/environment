@@ -1,0 +1,16 @@
+<{{ data.url ? 'a' : 'button' }}
+class="button-more {{ class }}"
+{% if data.url %}
+  href="{{ data.url }}"
+  {% if "//" in data.url %}
+    target="_blank"
+  {% endif %}
+{% endif %}
+{{ attributes }}
+{% if data.popup %} data-popup="{{ data.popup }}"{% endif %}>
+  {% if icon %}
+    <svg class="button-more__icon">
+      <use xlink:href="/assets/svg/sprite.svg#{{ icon }}"></use>
+    </svg>
+  {% endif %}
+</{{ data.url ? 'a' : 'button' }}>

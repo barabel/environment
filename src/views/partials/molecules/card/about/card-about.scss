@@ -1,0 +1,70 @@
+@import "src/views/partials/atoms/button/button";
+@import "src/views/partials/atoms/picture/picture";
+
+$parent: card-about;
+
+@include block($parent) {
+	position: relative;
+
+	@include element($parent, 'picture') {
+		margin-bottom: rem(16);
+		aspect-ratio: 664/441;
+		height: auto;
+
+		@include min-media('d') {
+			margin-bottom: 0;
+		}
+	}
+
+	@include element($parent, 'wrapper') {
+		@include min-media('d') {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($color-midnight-express, 0.5);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding-bottom: rem(32);
+
+			@include min-media('xxxl') {
+				padding-bottom: rem(40);
+			}
+		}
+	}
+
+	@include element($parent, 'title') {
+		text-align: center;
+		color: $color-midnight-express;
+		margin-bottom: rem(8);
+
+		@include min-media('d') {
+			color: $color-white;
+			max-width: rem(522);
+			margin: 0 auto rem(8);
+		}
+	}
+
+	@include element($parent, 'description') {
+		text-align: center;
+		color: $color-bright-grey;
+		margin-bottom: rem(16);
+
+		@include min-media('d') {
+			color: $color-white;
+			max-width: rem(522);
+			margin: 0 auto rem(16);
+		}
+	}
+
+	@include element($parent, 'button') {
+		margin: 0 auto;
+
+		@include max-media('dMax') {
+			--buttonColor: #{$color-midnight-express};
+			--buttonBorder: #{$color-midnight-express};
+		}
+	}
+}

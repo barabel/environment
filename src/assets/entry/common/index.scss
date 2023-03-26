@@ -1,0 +1,40 @@
+@import "../init.scss";
+@import "src/assets/styles/base";
+@import "src/assets/styles/container";
+@import 'src/assets/styles/reset';
+@import "src/assets/styles/typography";
+@import "src/assets/styles/fonts";
+
+.screen {
+	margin-top: rem(40);
+
+	@include min-media('t') {
+		margin-top: rem(64);
+	}
+
+	@include min-media('xxxl') {
+		margin-top: rem(80);
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child:not(.screen--colored) {
+		margin-bottom: rem(40);
+
+		@include min-media('t') {
+			margin-bottom: rem(64);
+		}
+
+		@include min-media('xxxl') {
+			margin-bottom: rem(80);
+		}
+	}
+
+	&.screen--colored {
+		& + .screen--colored {
+			margin-top: 0;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+<div class="heading{% if data.link %} heading--with-padding{% endif %} {{ class }}">
+    <div class="heading__wrapper">
+        {% if data.title %}
+            <div class="heading__title h1">
+                {{ data.title }}
+            </div>
+        {% endif %}
+        {% if data.description %}
+            <div class="heading__description t1">
+                {{ data.description }}
+            </div>
+        {% endif %}
+    </div>
+    {% if data.link %}
+        <div class="heading__button">
+            {% include "@view-root/atoms/button/more/button-more.twig" with { data: data.link, icon: "more" } %}
+        </div>
+    {% endif %}
+</div>

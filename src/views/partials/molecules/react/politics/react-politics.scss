@@ -1,0 +1,27 @@
+@import "src/assets/styles/function.scss";
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins.scss";
+@import "src/assets/styles/media.scss";
+
+$parent: "react-politics";
+
+@include block($parent) {
+	max-width: 90%;
+	color: $color-white;
+	text-align: center;
+
+	@include element($parent, "link") {
+		text-decoration: underline;
+		text-decoration-color: $color-white;
+	}
+
+	@include modifier($parent, "mailing") {
+		@include min-media('t') {
+			color: $color-bright-grey;
+
+			@include element($parent, "link") {
+				text-decoration-color: $color-bright-grey;
+			}
+		}
+	}
+}

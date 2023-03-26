@@ -1,0 +1,38 @@
+/** Breakpoints **/
+$min-media-sizes: (
+	"m": 375px,
+	"t": 768px,
+	'md': 1024px,
+	"d": 1280px,
+	"xl": 1440px,
+	"xxl": 1600px,
+	"xxxl": 1920px,
+);
+
+$max-media-sizes: (
+	"sMax": 374px,
+	"mMax": 767px,
+	"tMax": 1023px,
+	"dMax": 1279px,
+	"xlMax": 1439px
+);
+
+/** Fonts **/
+$font: "Muller", system-ui, sans-serif;
+
+/** Colors **/
+$color-white: #fff;
+$color-midnight-express: #061D40;
+$color-white: #FFFFFF;
+$color-seal-brown: #131313;
+$color-rustic-red: #4D0104;
+$color-bright-grey: #4F555D;
+$color-link-water: #CBD0D7;
+$color-solitude: #E3E6EA;
+$color-submarine: #9D9E9E;
+
+/** Container **/
+$padding-mobile: rem(16);
+$padding-tablet: rem(40);
+$padding-desktop: rem(48);
+$padding-desktop-xxxl: rem(80);

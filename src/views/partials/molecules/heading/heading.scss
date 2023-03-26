@@ -1,0 +1,71 @@
+@import "src/views/partials/atoms/button/more/button-more";
+
+$parent: heading;
+
+@include block($parent) {
+	width: 100%;
+
+	@include min-media('d') {
+		display: flex;
+	}
+
+	@include element($parent, 'wrapper') {
+		text-align: center;
+		flex-grow: 1;
+	}
+
+	@include element($parent, 'title') {
+		margin-bottom: rem(12);
+		color: var(--titleColor, $color-midnight-express);
+
+		@include min-media('t') {
+			max-width: rem(618);
+			margin: 0 auto rem(12) ;
+		}
+	}
+
+	@include element($parent, 'description') {
+		color: var(--descriptionColor, $color-bright-grey);
+
+		@include min-media('t') {
+			max-width: rem(512);
+			margin: auto;
+		}
+
+		@include min-media('d') {
+			max-width: rem(590);
+		}
+	}
+
+	@include element($parent, 'button') {
+		display: none;
+
+		@include min-media('d') {
+			display: block;
+			align-self: flex-end;
+			width: rem(67);
+		}
+	}
+
+	@include modifier($parent, 'with-padding') {
+		@include element($parent, 'wrapper') {
+			@include min-media('d') {
+				padding-left: rem(67);
+			}
+		}
+	}
+
+	@include modifier($parent, 'left') {
+		@include min-media('t') {
+			@include element($parent, 'title') {
+				margin: 0 0 rem(12);
+				text-align: left;
+			}
+
+			@include element($parent, 'description') {
+				margin: 0;
+				text-align: left;
+			}
+		}
+	}
+}

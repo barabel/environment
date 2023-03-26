@@ -1,0 +1,149 @@
+@import "src/assets/styles/media";
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/variables";
+
+.typography-font {
+  font-family: $font;
+  font-style: normal;
+}
+
+.h {
+  &1 {
+    @extend .typography-font;
+    font-weight: 700;
+    font-size: rem(28);
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(32);
+    }
+
+    @include min-media('d') {
+      font-size: rem(36)
+    }
+  }
+
+  &2 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(20);
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(22);
+    }
+
+    @include min-media('d') {
+      font-size: rem(26);
+    }
+  }
+
+  &3 {
+    @extend .typography-font;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 130%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(18);
+    }
+
+    @include min-media('d') {
+      font-size: rem(20);
+    }
+  }
+
+  &4 {
+    @extend .typography-font;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 130%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  &5 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: 130%;
+  }
+
+  &6 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(11);
+    line-height: 180%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(12);
+    }
+  }
+}
+
+.t {
+  &1 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(15);
+    line-height: 140%;
+
+    @include min-media('t') {
+      line-height: 130%;
+    }
+
+    @include min-media('d') {
+      font-size: rem(16);
+    }
+  }
+
+  &2 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: 130%;
+  }
+
+  &3 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(11);
+    line-height: 130%;
+
+    @include min-media('t') {
+      font-size: rem(12);
+    }
+  }
+
+  &4 {
+    @extend .typography-font;
+    font-weight: 400;
+    font-size: rem(10);
+    line-height: 130%;
+
+    @include min-media('t') {
+      font-size: rem(12);
+    }
+  }
+
+  &5 {
+    @extend .typography-font;
+    font-weight: 500;
+    font-size: rem(8);
+    line-height: 180%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(10);
+    }
+  }
+}

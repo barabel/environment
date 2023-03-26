@@ -1,0 +1,140 @@
+{
+	"video": {
+		"heading": {
+			"title": "Ваш главный путеводитель в мире яхтинга",
+			"description": "Станьте обладателем флайбриджной или спортивной моторной яхты от ведущих мировых производителей"
+		},
+		"video": "/assets/img/video.mp4"
+	},
+	"about": {
+		"text": "Эксперты MARINEPOINT помогут выбрать яхту вашей мечты, определиться с верфью и техническим оснащением, оформят сделку и решат любые сопутствующие вопросы. Мы работаем с ведущими европейскими брендами, а также оказываем услуги по продаже или покупке яхт на вторичном рынке. Мы предлагаем выгодную схему покупки trade-in, программы страхования, гарантийное и постгарантийное обслуживание",
+		"items": [
+			{
+				"image": {
+					"src": "/assets/img/about-1.jpg",
+					"alt": "яхта"
+				},
+				"title": "Новые яхты",
+				"description": "Станьте обладателем флайбриджной или спортивной моторной яхты от ведущих мировых производителей",
+				"button": {
+					"title": "отправить заявку"
+				}
+			},
+			{
+				"image": {
+					"src": "/assets/img/about-2.jpg",
+					"alt": "яхта"
+				},
+				"title": "брокераж",
+				"description": "Мы являемся лидером рынка брокеражных яхт и предлагаем самые интересные предложения в России и Европе",
+				"button": {
+					"title": "отправить заявку"
+				}
+			}
+		]
+	},
+	"applications": {
+		"img": {
+			"src": "/assets/img/applications/background-d.jpg",
+			"alt": "background"
+		},
+		"heading": {
+			"title": "оставить заявку на яхту",
+			"description": "Оставить, пожалуйста, Ваши контакты, и мы с свяжемся с Вами"
+		},
+		"form": {
+			"action": "api/popup_success",
+			"method": "POST",
+			"fields": [
+				{
+					"placeholder": "ФИО*",
+					"type": "text",
+					"name": "name",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"placeholder": "Email*",
+					"type": "email",
+					"name": "email",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"placeholder": "Телефон",
+					"type": "phone",
+					"name": "phone",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"type": "textarea",
+					"name": "message",
+					"placeholder": "Сообщение"
+				}
+			],
+			"btn": {
+				"title": "Отправить заявку"
+			}
+		}
+	},
+	"mailing": {
+		"img": {
+			"src": "/assets/img/mailing/background.jpg",
+			"alt": "background"
+		},
+		"heading": {
+			"title": "подписаться на рассылку",
+			"description": "Подпишитесь на рассылку, чтобы получать актуальные новости первым"
+		},
+		"form": {
+			"action": "api/popup_success",
+			"method": "POST",
+			"fields": [
+				{
+					"placeholder": "ФИО*",
+					"type": "text",
+					"name": "name",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"placeholder": "Email*",
+					"type": "email",
+					"name": "email",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"placeholder": "Телефон",
+					"type": "phone",
+					"name": "phone",
+					"validators": ["required"],
+					"error_message": "Заполните поле, чтобы продолжить"
+				},
+				{
+					"type": "multiselect",
+					"name": "categories",
+					"placeholder": "Новости",
+					"options": [
+						{
+							"title": "Новые яхты",
+							"value": "new"
+						},
+						{
+							"title": "Брокераж",
+							"value": "brokerage"
+						},
+						{
+							"title": "Аренда яхт",
+							"value": "rent"
+						}
+					]
+				}
+			],
+			"btn": {
+				"title": "Подписаться"
+			}
+		}
+	}
+}

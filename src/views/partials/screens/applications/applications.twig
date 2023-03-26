@@ -1,0 +1,16 @@
+<div class="applications screen screen—colored {{ class }}">
+  {% if data.img %}
+    <div class="applications__background">
+      {% include "@view-root/atoms/picture/picture.twig" with { data: data.img } only %}
+    </div>
+  {% endif %}
+  {% if data.heading %}
+    {% include "@view-root/molecules/heading/heading.twig" with { data: data.heading, class: "applications__heading" } only %}
+  {% endif %}
+  {% if data.form %}
+    <div class="applications__form"></div>
+    <script type="text/javascript" data-skip-moving>
+      window.applicationsForm = {{data|json_encode()}}
+    </script>
+  {% endif %}
+</div>

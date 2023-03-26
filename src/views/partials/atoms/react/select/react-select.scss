@@ -1,0 +1,256 @@
+@import "src/assets/styles/function.scss";
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins.scss";
+@import "src/assets/styles/media.scss";
+
+$react-select-bg-color: rgba($color-white, 0.85);
+
+$react-select-border-color: $color-link-water;
+$react-select-border-color-hover: $color-midnight-express;
+$react-select-border-color-menu-is-open: $color-midnight-express;
+$react-select-border-color-is-focused: $color-midnight-express;
+
+$react-select-color: $color-seal-brown;
+$react-select-color-hover: $color-seal-brown;
+$react-select-color-is-focused: $color-seal-brown;
+
+$react-select-dropdown-fill: $color-seal-brown;
+
+$react-select-menu-border-color: $color-white;
+$react-select-menu-bg-color: $color-white;
+
+$react-select-option-bg-color: $color-white;
+$react-select-option-color: $color-bright-grey;
+$react-select-option-bg-color-is-selected: $color-white;
+$react-select-option-color-is-selected: $color-seal-brown;
+$react-select-option-color-is-focused: $color-seal-brown;
+
+$react-select-transition: 0.3s ease;
+
+$react-select-borderless-border-color: rgba(0, 0, 0, 0);
+$react-select-borderless-border-color-menu-is-open: $color-midnight-express;
+$react-select-borderless-border-color-is-focused: $color-midnight-express;
+
+$parent: "react-select";
+
+@include block($parent) {
+  @include element($parent, "control") {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    padding: rem(10) rem(16);
+    border: 1px solid $react-select-border-color;
+    cursor: pointer;
+    color: $react-select-color;
+    background-color: $react-select-bg-color;
+    transition: border-color $react-select-transition,
+      color $react-select-transition;
+
+    &:hover {
+      border-color: $react-select-border-color-hover;
+      color: $react-select-color-hover;
+    }
+
+    @include modifier($parent, "menu-is-open") {
+      border-color: $react-select-border-color-menu-is-open;
+      background-color: $color-white;
+
+      @include element($parent, "indicator") {
+        transform: rotate(180deg);
+      }
+    }
+
+    @include modifier($parent, "is-focused") {
+      border-color: $react-select-border-color-is-focused;
+      color: $react-select-color-is-focused;
+      background-color: $color-white;
+
+    }
+  }
+
+  @include element($parent, "value-container") {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+
+    @include modifier($parent, "is-multi") {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  @include element($parent, "placeholder") {
+    display: inline;
+    color: $color-bright-grey;
+    text-transform: uppercase;
+  }
+
+  @include element($parent, "single-value") {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @include element($parent, "multi-value") {
+    padding-right: rem(5);
+    text-transform: uppercase;
+
+    &::after {
+      content: ",";
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  @include element($parent, "indicators") {
+    flex-shrink: 0;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: rem(5) 0 rem(5) rem(10);
+  }
+
+  @include element($parent, "indicator") {
+    display: flex;
+
+    svg {
+      width: rem(12);
+      height: rem(12);
+      fill: $react-select-dropdown-fill;
+    }
+  }
+
+  @include element($parent, "menu") {
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    border: 1px solid $react-select-menu-border-color;
+    background-color: $react-select-menu-bg-color;
+    box-shadow: 0px 4px 24px rgba(49, 48, 48, 0.13);
+
+    @include min-media("d") {
+      min-width: rem(300);
+    }
+  }
+
+  @include element($parent, "menu-list") {
+    position: relative;
+    max-height: rem(300);
+    padding-top: rem(8);
+    padding-bottom: rem(16);
+    overflow-y: auto;
+  }
+
+  @include element($parent, "option") {
+    display: block;
+    width: 100%;
+    padding: rem(8) rem(16) 0;
+    background-color: $react-select-option-bg-color;
+    color: $react-select-option-color;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+
+    @include modifier($parent, "is-selected") {
+      background-color: $react-select-option-bg-color-is-selected;
+      color: $react-select-option-color-is-selected;
+    }
+
+    @include modifier($parent, "is-focused") {
+      color: $react-select-option-color-is-focused;
+    }
+
+    @include modifier($parent, "hidden") {
+      display: none;
+    }
+  }
+
+  @include element($parent, "multi-option") {
+    display: flex;
+    align-items: center;
+  }
+
+  @include element($parent, "multi-option-input") {
+    display: none;
+
+    &:checked + .#{$parent}__multi-option-checkmark {
+      background-color: $color-link-water;
+
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  @include element($parent, "multi-option-checkmark") {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(16);
+    height: rem(16);
+    margin-right: rem(16);
+    border: 1px solid $react-select-border-color;
+    border-radius: 3px;
+
+    svg {
+      display: none;
+      width: 100%;
+      height: 100%;
+      fill: $react-select-dropdown-fill;
+    }
+  }
+
+  @include element($parent, "multi-option-label") {
+    cursor: pointer;
+  }
+
+  @include modifier($parent, "borderless") {
+    @include element($parent, "control") {
+      border-color: $react-select-borderless-border-color;
+
+      &:hover {
+        border-color: $react-select-border-color-hover;
+        color: $react-select-color-hover;
+      }
+
+      &--menu-is-open {
+        border-color: $react-select-borderless-border-color-menu-is-open;
+
+        @include element($parent, "indicator") {
+          transform: rotate(180deg);
+        }
+      }
+
+      &--is-focused {
+        border-color: $react-select-borderless-border-color-is-focused;
+      }
+    }
+  }
+
+  @include modifier($parent, "small-padding") {
+    @include element($parent, "control") {
+      padding: rem(10) rem(24);
+    }
+  }
+
+  @include modifier($parent, "auto-menu") {
+    @include element($parent, "menu") {
+      min-width: auto;
+    }
+  }
+}

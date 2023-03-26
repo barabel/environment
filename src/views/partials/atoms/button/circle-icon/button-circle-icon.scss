@@ -1,0 +1,29 @@
+$parent: "button-circle-icon";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(12) rem(11) rem(9);
+  border: 1px solid rgba($color-white, 0.2);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  text-decoration: none;
+
+  @include min-media('t') {
+    padding: rem(15) rem(13) rem(11);
+  }
+
+  @include element($parent, "icon") {
+    width: rem(18);
+    height: rem(18);
+    fill: $color-white;
+
+    @include min-media('t') {
+      width: rem(22);
+      height: rem(22);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@mixin min-media($breakpoint) {
+	$size: map-get($min-media-sizes, $breakpoint);
+
+	@media (min-width: $size) { @content; }
+}
+
+@mixin max-media($breakpoint) {
+	$size: map-get($max-media-sizes, $breakpoint);
+
+	@media (max-width: $size) { @content; }
+}
+
+@mixin only-media($min, $max) {
+	$min-size: map-get($min-media-sizes, $min);
+	$max-size: map-get($max-media-sizes, $max);
+
+	@media (min-width: $min-size) and (max-width: $max-size) { @content; }
+}

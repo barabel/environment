@@ -1,0 +1,52 @@
+@import "src/assets/styles/function";
+@import "src/assets/styles/variables";
+
+/*
+os-theme-dark
+*/
+
+$os-theme-dark-track-color: $color-link-water;
+$os-theme-dark-handle-color: $color-tory-blue;
+$os-theme-dark-handle-color-hover: $color-pacific-blue;
+
+.os-theme-dark.os-scrollbar-vertical {
+  width: 4px;
+}
+
+.os-theme-dark.os-scrollbar>.os-scrollbar-track {
+  background-color: rgba($os-theme-dark-track-color, 0.5);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  padding: 0;
+}
+
+.os-theme-dark.os-scrollbar>.os-scrollbar-track>.os-scrollbar-handle {
+  background-color: $os-theme-dark-handle-color;
+  width: 3px;
+  right: -1px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.os-theme-dark.os-scrollbar:hover>.os-scrollbar-track>.os-scrollbar-handle {
+  background-color: $os-theme-dark-handle-color-hover;
+}
+
+.narrow-vertical-scrollbar.os-scrollbar-vertical {
+  width: 3px;
+}
+
+.narrow-vertical-scrollbar .os-scrollbar-track {
+  background: linear-gradient(to right, transparent 1px, $os-theme-dark-track-color 1px 2px, transparent 2px);
+}
+
+.narrow-vertical-scrollbar .os-scrollbar-handle {
+  cursor: pointer;
+  background: $os-theme-dark-handle-color;
+  border-radius: 2px;
+
+  &:hover {
+    background: $os-theme-dark-handle-color-hover;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="card-about">
+    {% if data.image %}
+        {% include "@view-root/atoms/picture/picture.twig" with { data: data.image, class: "card-about__picture" } %}
+    {% endif %}
+
+    <div class="card-about__wrapper">
+        {% if data.title %}
+        <div class="card-about__title h2">
+            {{ data.title }}
+        </div>
+        {% endif %}
+
+        {% if data.description %}
+        <div class="card-about__description t1">
+            {{ data.description }}
+        </div>
+        {% endif %}
+
+        {% if data.button %}
+        {% include "@view-root/atoms/button/button.twig" with { data: data.button, class: "card-about__button" } %}
+        {% endif %}
+    </div>
+</div>

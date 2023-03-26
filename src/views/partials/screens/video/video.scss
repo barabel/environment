@@ -1,0 +1,71 @@
+@import "src/views/partials/molecules/heading/heading";
+
+$parent: video;
+
+@include block($parent) {
+	position: relative;
+
+	@include max-media('dMax') {
+		&.screen + .screen {
+			margin-top: rem(64);
+		}
+	}
+
+	@include max-media('mMax') {
+		&.screen + .screen {
+			margin-top: rem(40);
+		}
+	}
+
+	@include min-media('d') {
+		aspect-ratio: 16/9;
+	}
+
+	&::before {
+		@include min-media('d') {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba($color-midnight-express, 0.5);
+			z-index: 2;
+		}
+	}
+
+	@include element($parent, 'heading') {
+		position: relative;
+		z-index: 3;
+
+		@include min-media('d') {
+			--titleColor: #{$color-white};
+			--descriptionColor: #{$color-white};
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+		}
+	}
+
+	@include element($parent, 'background') {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: auto;
+		margin-bottom: rem(40);
+
+		@include min-media('t') {
+			margin-bottom: rem(64);
+		}
+
+		@include min-media('d') {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			margin-bottom: 0;
+		}
+	}
+}

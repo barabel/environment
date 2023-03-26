@@ -1,0 +1,99 @@
+@import "../../atoms/picture/picture.scss";
+@import "../../molecules/heading/heading.scss";
+
+$parent: "mailing";
+
+@include block($parent) {
+  position: relative;
+  padding: rem(48) rem(32) rem(54);
+
+  @include min-media('t') {
+    display: flex;
+    padding: rem(40);
+  }
+
+  @include min-media('d'){
+    padding: 0 rem(108) 0 rem(48);
+  }
+
+  @include min-media('xxxl'){
+    padding: 0 rem(164) 0 rem(80);
+  }
+
+  @include element($parent, 'background') {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color-midnight-express, 0.5);
+    }
+
+    @include min-media('t') {
+      flex-shrink: 0;
+      flex-grow: 1;
+      position: relative;
+      width: 50%;
+      margin-right: rem(24);
+
+      &::after {
+        content: none;
+      }
+    }
+
+    @include min-media('d') {
+      margin-right: rem(106);
+    }
+  }
+
+  @include element($parent, "wrapper") {
+    @include min-media('d') {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 38%;
+    }
+
+    @include min-media('xxxl') {
+      width: 36%;
+    }
+  }
+
+  @include element($parent, "heading") {
+    z-index: 2;
+    --titleColor: #{$color-white};
+    --descriptionColor: #{$color-white};
+    position: relative;
+    margin-bottom: rem(24);
+
+    @include min-media('t') {
+      --titleColor: #{$color-midnight-express};
+      --descriptionColor: #{$color-bright-grey};
+      margin-bottom: rem(32);
+    }
+
+    @include min-media('d') {
+      max-width: rem(976);
+      margin: 0 0 rem(40);
+    }
+
+    @include min-media('xxxl') {
+      max-width: rem(417);
+      margin: 0 0 rem(40);
+    }
+  }
+
+  @include element($parent, "form") {
+    z-index: 2;
+    position: relative;
+  }
+}

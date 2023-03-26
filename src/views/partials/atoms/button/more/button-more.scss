@@ -1,0 +1,20 @@
+$parent: "button-more";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(10) rem(24);
+  border: 1px solid $color-solitude;
+  border-radius: rem(60);
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  text-decoration: none;
+
+  @include element($parent, "icon") {
+    width: rem(22);
+    height: rem(19);
+    fill: $color-midnight-express;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="video screen screen--colored">
+    {% if data.video %}
+        <video class="video__background" loop muted playsinline autoplay>
+            <source src="{{data.video}}" type="video/mp4">
+        </video>
+    {% endif %}
+
+    {% if data.heading %}
+        {% include "@view-root/molecules/heading/heading.twig" with { data: data.heading, class: "video__heading container" } %}
+    {% endif %}
+</div>

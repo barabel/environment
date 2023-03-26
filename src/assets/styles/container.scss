@@ -1,0 +1,19 @@
+.container {
+	padding-right: $padding-mobile;
+	padding-left: $padding-mobile;
+
+	@include min-media('t') {
+		padding-right: $padding-tablet;
+		padding-left: $padding-tablet;
+	}
+
+	@include min-media('d') {
+		padding-right: $padding-desktop;
+		padding-left: $padding-desktop;
+	}
+
+	@include min-media('xxxl') {
+		padding-right: $padding-desktop-xxxl;
+		padding-left: $padding-desktop-xxxl;
+	}
+}

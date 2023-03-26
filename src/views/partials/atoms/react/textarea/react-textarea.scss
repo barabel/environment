@@ -1,0 +1,65 @@
+@import "src/assets/styles/function.scss";
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins.scss";
+@import "src/assets/styles/media.scss";
+
+@import "../../../../../../node_modules/overlayscrollbars/styles/overlayscrollbars";
+
+$parent: 'react-textarea';
+
+@include block($parent) {
+  position: relative;
+
+  @include element($parent, 'body') {
+    transition: border-color 0.3s ease;
+    border: 1px solid $color-link-water;
+    max-height: rem(140);
+
+    &:hover {
+      border-color: $color-midnight-express;
+    }
+  }
+
+  @include element($parent, 'input') {
+    resize: none;
+    border: none;
+    border-radius: inherit;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: rem(10) rem(16);
+    cursor: text;
+    color: $color-bright-grey;
+    background-color: rgba($color-white, 0.85);
+    transition: color 0.3s ease;
+
+    &:placeholder-shown {
+      color: rgba($color-bright-grey, 0.60);
+      text-transform: uppercase;
+    }
+  }
+
+  @include element($parent, 'scrollbar') {
+    &.os-scrollbar-vertical {
+      width: 4px;
+      top: rem(16);
+      right: rem(12);
+      bottom: rem(16);
+    }
+
+    & .os-scrollbar-track {
+      background-color: rgba($color-link-water, 0.5);
+      border-radius: 2px;
+    }
+
+    & .os-scrollbar-handle {
+      background-color: $color-midnight-express;
+      border-radius: inherit;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-midnight-express;
+      }
+    }
+  }
+}

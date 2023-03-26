@@ -1,0 +1,67 @@
+@import "../../atoms/picture/picture.scss";
+@import "../../molecules/heading/heading.scss";
+
+$parent: "applications";
+
+@include block($parent) {
+  position: relative;
+  padding: rem(61) rem(32);
+
+  @include min-media('t') {
+    padding: rem(74) rem(40);
+  }
+
+  @include min-media('d') {
+    padding: rem(93) rem(40);
+  }
+
+  @include min-media('xxxl') {
+    padding: rem(153) rem(40);
+  }
+
+	@include element($parent, 'background') {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color-midnight-express, 0.5);
+    }
+	}
+
+  @include element($parent, "heading") {
+    z-index: 2;
+    --titleColor: #{$color-white};
+    --descriptionColor: #{$color-white};
+    position: relative;
+    margin-bottom: rem(24);
+
+    @include min-media('t') {
+      margin-bottom: rem(32);
+    }
+
+    @include min-media('d') {
+      max-width: rem(976);
+      margin: 0 auto rem(40);
+    }
+  }
+
+  @include element($parent, "form") {
+    z-index: 2;
+    position: relative;
+
+    @include min-media('d') {
+      max-width: rem(976);
+      margin: 0 auto;
+    }
+  }
+}

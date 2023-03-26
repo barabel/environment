@@ -1,0 +1,14 @@
+<{{ data.url ? 'a' : 'button' }}
+class="link {{ class }} {{ typographyClass ?? "t5" }}"
+{% if data.url %}
+  href="{{ data.url }}"
+  {% if "//" in data.url %}
+    target="_blank"
+  {% endif %}
+{% endif %}
+{{ attributes }}
+{% if data.popup %} data-popup="{{ data.popup }}"{% endif %}>
+  {% if data.title %}
+    {{ data.title }}
+  {% endif %}
+</{{ data.url ? 'a' : 'button' }}>

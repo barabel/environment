@@ -1,0 +1,55 @@
+@import "src/views/partials/molecules/card/about/card-about.scss";
+
+$parent: about;
+
+@include block($parent) {
+	@include element($parent, 'cards') {
+		@include min-media('t') {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		& > * {
+			width: 100%;
+
+			@include min-media('t') {
+				width: calc(50% - #{rem(8)});
+			}
+
+			@include min-media('xxxl') {
+				width: calc(50% - #{rem(12)});
+			}
+
+			&:nth-child(even) {
+				margin: rem(40) 0 0 0;
+
+				@include min-media('t') {
+					margin: 0 0 0 rem(16);
+				}
+
+				@include min-media('xxxl') {
+					margin: 0 0 0 rem(24);
+				}
+			}
+		}
+	}
+
+	@include element($parent, 'text') {
+		text-align: center;
+		margin-bottom: rem(40);
+
+		@include min-media('t') {
+			max-width: rem(688);
+			margin: 0 auto rem(64);
+		}
+
+		@include min-media('d') {
+			max-width: rem(900);
+		}
+
+		@include min-media('xxxl') {
+			max-width: rem(1166);
+			margin: 0 auto rem(80);
+		}
+	}
+}

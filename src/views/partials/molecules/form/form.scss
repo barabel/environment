@@ -1,0 +1,110 @@
+@import "src/assets/styles/function.scss";
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins.scss";
+@import "src/assets/styles/media.scss";
+
+$parent: "form";
+
+@include block($parent) {
+  @include element($parent, "title") {
+    margin-bottom: rem(16);
+    text-transform: uppercase;
+    color: $color-white;
+  }
+
+  @include element($parent, "form") {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include element($parent, "fields") {
+    width: 100%;
+    margin-bottom: rem(12);
+
+    @include min-media('t') {
+      margin-bottom: rem(16);
+    }
+  }
+
+  @include element($parent, "field") {
+    width: 100%;
+    margin-bottom: rem(6);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include element($parent, "politics") {
+    margin-bottom: rem(24);
+  }
+
+  @include modifier($parent, "horizontal") {
+    @include min-media("t") {
+      @include element($parent, "fields") {
+        grid-template-columns: 1fr 1fr auto;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap: rem(12);
+        margin-bottom: rem(18);
+      }
+
+      @include element($parent, "btn") {
+        margin: 0;
+      }
+    }
+  }
+
+  @include modifier($parent, "height-auto") {
+    height: auto;
+  }
+
+  @include modifier($parent, "applications") {
+    @include element($parent, "fields") {
+      @include min-media('t') {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(8);
+      }
+    }
+
+    @include element($parent, "field") {
+      @include min-media('t') {
+        margin-bottom: 0;
+
+        &:last-child {
+          grid-column: 1 / 4;
+        }
+      }
+    }
+
+    @include element($parent, "politics") {
+      @include min-media('t') {
+        margin-bottom: rem(32);
+      }
+    }
+  }
+
+  @include modifier($parent, "mailing") {
+    @include element($parent, "form") {
+      @include min-media('t') {
+        align-items: flex-start;
+      }
+    }
+
+    @include element($parent, "field") {
+      margin-bottom: rem(10);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include element($parent, "politics") {
+      @include min-media('t') {
+        text-align: left;
+      }
+    }
+  }
+}

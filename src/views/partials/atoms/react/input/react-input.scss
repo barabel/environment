@@ -1,0 +1,82 @@
+@import "src/assets/styles/function.scss";
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins.scss";
+@import "src/assets/styles/media.scss";
+
+$parent: "react-input";
+
+@include block($parent) {
+  position: relative;
+
+  @include element($parent, "input") {
+    display: block;
+    width: 100%;
+    padding: rem(10) rem(32) rem(10) rem(16);
+    border: 1px solid $color-link-water;
+    text-overflow: ellipsis;
+    cursor: text;
+    color: $color-bright-grey;
+    background-color: rgba($color-white, 0.85);
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      border-color: $color-midnight-express;
+    }
+
+    &:placeholder-shown {
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      color: rgba($color-bright-grey, 0.60);
+    }
+  }
+
+  @include element($parent, "error") {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    right: rem(6);
+    transform: translateY(-50%);
+  }
+
+  @include element($parent, 'error-icon') {
+    width: rem(20);
+    height: rem(20);
+    fill: $color-rustic-red;
+    cursor: pointer;
+
+    &:hover {
+      & + .#{$parent}__error-text {
+        display: flex;
+      }
+    }
+  }
+
+  @include element($parent, "error-text") {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: rem(8) rem(12);
+    border-radius: rem(30);
+    background-color: $color-seal-brown;
+    color: $color-white;
+    box-shadow: 0px 0px rem(20) rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+
+    @include modifier($parent, "show") {
+      display: flex;
+    }
+  }
+
+  @include modifier($parent, "hidden") {
+    display: none;
+  }
+
+  @include modifier($parent, "error") {
+    @include element($parent, "input") {
+      border-color: $color-rustic-red;
+    }
+  }
+}

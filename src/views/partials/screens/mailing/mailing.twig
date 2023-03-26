@@ -1,0 +1,20 @@
+<div class="mailing screen screen—colored {{ class }}">
+  {% if data.img %}
+    <div class="mailing__background">
+      {% include "@view-root/atoms/picture/picture.twig" with { data: data.img } only %}
+    </div>
+  {% endif %}
+  {% if data.heading or data.form %}
+    <div class="mailing__wrapper">
+      {% if data.heading %}
+        {% include "@view-root/molecules/heading/heading.twig" with { data: data.heading, class: "heading--left mailing__heading" } only %}
+      {% endif %}
+      {% if data.form %}
+        <div class="mailing__form"></div>
+        <script type="text/javascript" data-skip-moving>
+          window.mailingForm = {{data|json_encode()}}
+        </script>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

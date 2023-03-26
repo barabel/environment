@@ -1,0 +1,29 @@
+{% block styles %}
+  <link rel="stylesheet" href="/assets/css/index.min.css">
+{% endblock %}
+
+{% extends "@root/layout/base.twig" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  {% if video %}
+    {% include "@view-root/screens/video/video.twig" with { data: video } %}
+  {% endif %}
+
+  {% if about %}
+    {% include "@view-root/screens/about/about.twig" with { data: about } %}
+  {% endif %}
+
+  {% if applications %}
+    {% include "@view-root/screens/applications/applications.twig" with { data: applications } only %}
+  {% endif %}
+
+  {% if mailing %}
+    {% include "@view-root/screens/mailing/mailing.twig" with { data: mailing } only %}
+  {% endif %}
+{% endblock %}
+{% block scripts %}
+  <script src="/assets/js/index.min.js"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% if data.desktop or data.tablet %}
+<picture class="picture {{ class|default('') }}">
+    {% if data.desktop %}
+    <source
+        {% if noLazy %}
+        srcset="{{ data.desktop }}" media="(min-width: 1280px)"
+        {% else %}
+        data-srcset="{{ data.desktop }}" media="(min-width: 1280px)"
+        {% endif %}
+    >
+    {% endif %}
+    {% if data.tablet %}
+    <source
+        {% if noLazy %}
+        srcset="{{ data.tablet }}" media="(min-width: 768px)"
+        {% else %}
+        data-srcset="{{ data.tablet }}" media="(min-width: 768px)"
+        {% endif %}
+    >
+    {% endif %}
+    {% if data.src %}
+    <img
+        {% if noLazy %}
+        src="{{ data.src }}"
+        {% else %}
+        class="lazyload"
+        data-src="{{ data.src }}"
+        {% endif %}
+        {% if data.alt %}
+        alt="{{ data.alt }}"
+        {% endif %}
+        {% if data.title %}
+        title="{{ data.title }}"
+        {% endif %}
+        {{ attributes }}
+    >
+    {% endif %}
+</picture>
+{% else %}
+<img
+    {% if noLazy %}
+    class="picture {{ class|default('') }}"
+    src="{{ data.src }}"
+    {% else %}
+    class="picture lazyload {{ class|default('') }}"
+    data-src="{{ data.src }}"
+    {% endif %}
+    {% if data.alt %}
+    alt="{{ data.alt }}"
+    {% endif %}
+    {% if data.title %}
+    title="{{ data.title }}"
+    {% endif %}
+    {{ attributes }}
+>
+{% endif %}

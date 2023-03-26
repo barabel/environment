@@ -1,0 +1,10 @@
+$parent: 'link';
+
+@include block($parent) {
+	position: relative;
+	display: inline-flex;
+	padding: 0;
+	border: none;
+	color: var(--link-color, $color-white);
+	background: transparent;
+}
